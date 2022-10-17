@@ -7,8 +7,8 @@ class Bola(Turtle):
         self.shape("circle")
         self.color("white")
         self.penup()
-        self.movimento_x = 2.5
-        self.movimento_y = 2.5
+        self.velocidade()
+
 
     def mexer(self):
         new_x = self.xcor() + self.movimento_x
@@ -20,3 +20,24 @@ class Bola(Turtle):
 
     def quicar_x(self):
         self.movimento_x *= -1
+
+    def reset(self):
+        self.goto(0, 0)
+        self.quicar_x()
+
+    def velocidade(self):
+        self.movimento_x = 3
+        self.movimento_y = 3
+
+    def velocidade_mov(self):
+        if self.xcor() > 0:
+            self.movimento_x -= 1
+
+        if self.xcor() < 0:
+            self.movimento_x += 1
+
+        if self.ycor() > 0:
+            self.movimento_y -= 1
+
+        if self.ycor() < 0:
+            self.movimento_y += 1
